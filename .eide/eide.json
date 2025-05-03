@@ -49,7 +49,12 @@
           "App/Modules/Motor_Control",
           "App/Modules/Uart_Control",
           "App/Modules/Battery_FeedBack",
-          "App/Modules/Ultrasonic_FeedBack"
+          "App/Modules/Ultrasonic_FeedBack",
+          "App/Application",
+          "App/Algorithm",
+          "App/Algorithm/Line_Follower",
+          "App/Algorithm/Obstacle_Avoidance",
+          "App/Algorithm/Speed_Control"
         ],
         "libList": [],
         "defineList": []
