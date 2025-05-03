@@ -48,7 +48,8 @@
           "App/Modules/Light_Control",
           "App/Modules/Motor_Control",
           "App/Modules/Uart_Control",
-          "App/Modules/Battery_FeedBack"
+          "App/Modules/Battery_FeedBack",
+          "App/Modules/Ultrasonic_FeedBack"
         ],
         "libList": [],
         "defineList": []

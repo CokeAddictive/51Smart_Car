@@ -1,10 +1,11 @@
-#include "Buzzer_Control.h"
 #include "RTX51TNY.H"
+#include <stdio.h> //为了使用printf函数
+#include "ultrasonic_feedback.h"
 #include "battery_feedback.h"
-#include "key_control.h"
+#include "Buzzer_Control.h"
 #include "light_control.h"
 #include "uart_control.h"
-#include <stdio.h> //为了使用printf函数
+#include "key_control.h"
 
 // 函数声明
 void Key_DownCB();
@@ -16,6 +17,8 @@ void System_Init() _task_ 1 { // 系统初始化任务
     Buzzer_Init();            // 蜂鸣器
     Key_Init();               // 按键
     Battery_Init();           // 电池
+    Ultrasonic_Init();        // 超声波
+
 
     os_delete_task(1); // kill oneself
 }
@@ -52,6 +55,8 @@ void Launch() _task_ 0 {
 
 void Key_DownCB() {
     static char i = 0;
+    float distance=0;
+    char key=0;
     switch (i) {
     case 0:
         Light_SetMode(LIGHT_MODE_LEFT);
@@ -61,11 +66,12 @@ void Key_DownCB() {
         break;
     case 2:
         Light_SetMode(LIGHT_MODE_HAZARD);
-        Buzzer_Alarm();
         break;
     case 3:
         Light_SetMode(LIGHT_MODE_OFF);
         printf("电池电压为:%.2f\n", Battery_GetVoltage());
+        key=Ultrasonic_GetDistance(&distance);
+        printf("超声波状态=%d,距离=%.2fcm\n",(int)key,distance); 
         break;
     }
     printf("当前进入的是case %d\n",(int)i);
