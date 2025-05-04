@@ -24,6 +24,7 @@ void Motors_Translation(char speed, MotorsMode mode);
 
 void Motors_Whirl(char speed, MotorsMode mode);
 
+void Motors_Turn(char speed, MotorsMode mode);
 
 void Motors_GradualStop();    // 渐进式刹车
 

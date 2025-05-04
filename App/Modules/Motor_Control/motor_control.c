@@ -92,6 +92,31 @@ void Motors_Whirl(char speed, MotorsMode mode) {
         HAL_Motor_RightBack(-speed);
     }
 }
+/**
+ * @brief 转弯
+ * 
+ * @param speed 速度 0-100
+ * @param mode LEFT_M, RIGHT_M
+ */
+void Motors_Turn(char speed, MotorsMode mode) {
+    if (mode == LEFT_M) {
+        HAL_Motor_LeftFront(0);
+        HAL_Motor_LeftBack(0);
+        HAL_Motor_RightFront(speed);
+        HAL_Motor_RightBack(speed);
+    } else if (mode == RIGHT_M) {
+        HAL_Motor_LeftFront(speed);
+        HAL_Motor_LeftBack(speed);
+        HAL_Motor_RightFront(0);
+        HAL_Motor_RightBack(0);
+    }
+}
+
+
+
+
+
+
 
 // 停止 
 void Motors_Stop() {
