@@ -4,6 +4,7 @@
 #include "key_control.h"
 #include "light_control.h"
 #include "motor_control.h"
+#include "sensor_feedback.h"
 #include "uart_control.h"
 #include "ultrasonic_feedback.h"
 #include <stdio.h> //为了使用printf函数
@@ -20,6 +21,7 @@ void System_Init() _task_ 1 { // 系统初始化任务
     Battery_Init();           // 电池
     Ultrasonic_Init();        // 超声波
     Motors_Init();            // 电机
+    Sensor_Init();            // 传感器
 
     os_delete_task(1); // kill oneself
 }
@@ -44,6 +46,8 @@ void Key() _task_ 4 { // 按键任务
         os_wait2(K_TMO, 4);
     }
 }
+
+
 
 void Launch() _task_ 0 {
     os_create_task(1);

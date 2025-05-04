@@ -2,7 +2,9 @@
     "configurations": [
         {
             "name": "Target_1",
-            "includePath": [],
+            "includePath": [
+                "C:\\Software\\keil5\\C51\\INC"
+            ],
             "defines": [
                 "__C51__",
                 "__VSCODE_C51__",

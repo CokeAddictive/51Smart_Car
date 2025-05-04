@@ -54,7 +54,8 @@
           "App/Algorithm",
           "App/Algorithm/Line_Follower",
           "App/Algorithm/Obstacle_Avoidance",
-          "App/Algorithm/Speed_Control"
+          "App/Algorithm/Speed_Control",
+          "App/Modules/Sensor_FeedBack"
         ],
         "libList": [],
         "defineList": []
