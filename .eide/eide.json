@@ -35,7 +35,7 @@
       "custom_dep": {
         "name": "default",
         "incList": [
-          "C:/Software/keil5/C51/INC/STC",
+          "../../Software/keil5/C51/INC/STC",
           "App",
           "COM",
           "Lib",
@@ -55,7 +55,8 @@
           "App/Algorithm/Line_Follower",
           "App/Algorithm/Obstacle_Avoidance",
           "App/Algorithm/Speed_Control",
-          "App/Modules/Sensor_FeedBack"
+          "App/Modules/Sensor_FeedBack",
+          "App/Algorithm/BLE_Control"
         ],
         "libList": [],
         "defineList": []
