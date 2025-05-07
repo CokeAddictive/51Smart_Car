@@ -7,6 +7,7 @@
 #include "sensor_feedback.h"
 #include "uart_control.h"
 #include "ultrasonic_feedback.h"
+#include "BLE_Control.h"
 #include <stdio.h> //为了使用printf函数
 
 // 函数声明
@@ -22,8 +23,9 @@ void System_Init() _task_ 1 { // 系统初始化任务
     Ultrasonic_Init();        // 超声波
     Motors_Init();            // 电机
     Sensor_Init();            // 传感器
+    BLE_Control_Init();       // 蓝牙控制
 
-    UART_GetRX2();//串口2 接收测试//注意这个调用一次 给回调函数注册了就可以了
+    
 
     os_delete_task(1); // kill oneself
 }
@@ -31,7 +33,7 @@ void System_Init() _task_ 1 { // 系统初始化任务
 void UART() _task_ 2 { // 串口任务
     while (1) {
         UART_BLUE();
-        
+        BEL_Ctrl();
         os_wait2(K_TMO, 2);
     }
 }

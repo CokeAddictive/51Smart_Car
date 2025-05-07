@@ -12,7 +12,9 @@ void UART_Echo();
 void UART_BLUE();
 
 // 串口2接收回调函数
-unsigned char* UART_GetRX2();
+void UART_GetRX2();
 
+void UART_APP_Control(void (*APP)(unsigned char *, unsigned char)); // 
+void UART_PC_Control(void (*PC)(unsigned char *, unsigned char));  // 
 
 #endif // UART_CONTROL_H
